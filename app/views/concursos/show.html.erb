@@ -1,0 +1,63 @@
+<div class="row center-xs">
+<div class="col-xs-9 col-md-6">
+<div  class="box text-left">
+ <%= jwplayer_assets %>
+ <%  unless @concurso.user.nil? %>
+    <p>
+        Creado por: <%= @concurso.user.email %>
+      
+    </p>
+
+    
+    <%end%>
+    <p>
+  <strong>Namec:</strong>
+  <%= @concurso.namec %>
+</p>
+
+<p>
+  <strong>Banner:</strong>
+  <%= @concurso.banner %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @concurso.url %>
+</p>
+
+<p>
+  <strong>Fecha inicio:</strong>
+  <%= @concurso.fecha_inicio %>
+</p>
+
+<p>
+  <strong>Fecha fin:</strong>
+  <%= @concurso.fecha_fin %>
+</p>
+
+<p>
+  <strong>Premio:</strong>
+  <%= @concurso.premio %>
+</p>
+
+
+
+ <div class="timeline-body">
+    <%= jwplayer({width: 450, height: 350, file: "/uploads/archivo/JeffersonTest.mp4", primary: "flash", flashplayer: asset_path('flash.swf')}) %>
+    </div>
+
+
+
+
+<%= render "archivos/form" %>
+
+
+
+<%= link_to 'Edit', edit_concurso_path(@concurso) %> |
+<%= link_to 'Back', concursos_path %>
+
+
+
+     </div> 
+    </div> 
+    </div>
