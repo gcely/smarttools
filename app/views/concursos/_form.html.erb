@@ -1,3 +1,4 @@
+
 <div class="row center-xs">
 <div class="col-xs-9 col-md-5">
 <div  class="box text-left">
@@ -23,7 +24,7 @@
 
   <div class="field">
     <%= f.label :banner %>
-    <%= f.text_field :banner, class:"form-control" %>
+    <%= f.file_field :banner, class:"form-control" %>
   </div>
 
   <div class="field">
@@ -32,15 +33,21 @@
     
   </div>
 
-  <div class="field">
-    <%= f.label :fecha_inicio %>
-    <%= f.date_select :fecha_inicio, class:"form-control" %>
-  </div>
 
   <div class="field">
-    <%= f.label :fecha_fin %>
-    <%= f.date_select :fecha_fin, class:"form-control" %>
+    <%= f.label :fecha_inicio  %>
+<%# si se usa f.date_select :fecha_inicio,  class:"form-control"  %>
+    <%= f.date_select :fecha_inicio,  class:"form-control" %>
   </div>
+
+
+
+  <div class="field">
+    <%= f.label :fecha_fin  %>
+<%# si se usa f.date_select :fecha_fin,  class:"form-control"  %>
+    <%= f.date_select :fecha_fin ,  class:"form-control" %>
+  </div>
+
 
   <div class="field">
     <%= f.label :premio %>

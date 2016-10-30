@@ -2,13 +2,18 @@
 <div class="col-xs-9 col-md-5">
 <div  class="box text-left">
 
+<font color="green">
+ <h1>Bienvenido a miVideo</h1></font>
+
 <% if user_signed_in? %>
-<h1>
-  Bienvenido <%= current_user.email %>
-</h1>
+<h3>
+  Administrador: <%= current_user.name %><br>
+  Correo: <%= current_user.email %><br>
+   
+</h3>
 <%end%>
 
- <h1>Bienvenido a miVideo</h1>
+
  <h2> Podras subir tus videos y concursar con ellos </h2>
 
 <p> Si eres administrador: Para crear sus concurso(s) debe contar con una cuenta registrada, 
@@ -22,8 +27,10 @@ ganará un fabuloso premio.</br>
 </p>
 
 <h3>Suscríbete a este sitio para poder generar el concurso de video que desee o visita los videos de otros usuarios en la pestaña "Concursos".</h3>
-
- <li class="col-md" >
+<% unless user_signed_in? %>
+<h4>
+ 
+<li class="col-md" >
 <%= link_to "Iniciar Sesión", new_user_session_path,  class:"btn" %>
 </li>
 
@@ -32,6 +39,11 @@ ganará un fabuloso premio.</br>
 <%= link_to "Crear cuenta", new_user_registration_path,  class:"btn" %>
 
 </li>
+
+ </h4>
+<%end%>
+
+ 
 
 
 <div class="col-md-14">

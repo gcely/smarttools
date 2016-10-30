@@ -1,42 +1,40 @@
 class ConcursosController < ApplicationController
-  #before_action :validate_user, except: [:show, :index]
-  before_action :authenticate_user!,  except: [:show, :index]
-  before_action :set_concurso, except: [:index, :new, :create]
-  #before_action :set_concurso, except: [:show, :edit, :update, :destroy]
+require 'mongoid'
+require 'will_paginate/collection'
+require 'carrierwave/mongoid'
 
+ 
+ before_action :authenticate_user!,  except: [:show, :index]
+ before_action :set_concurso, except: [:index, :new, :create]
+ 
 
-
-  # GET /concursos
-  # GET /concursos.json
   def index
-    @concursos = Concurso.all
-  end
+    @concursos = Concurso.paginate(:page => params[:page], :per_page => 10)
+    end
 
-  # GET /concursos/1
-  # GET /concursos/1.json
   def show
-    @archivo = Archivo.new
+ @archivos = @concurso.archivos.paginate(:page => params[:page], :per_page => 2)
+ @archivo = Archivo.new
   end
 
-  # GET /concursos/new
   def new
     @concurso = Concurso.new
   end
 
-  # GET /concursos/1/edit
   def edit
   end
 
-  # POST /concursos
-  # POST /concursos.json
   def create
-    
-   @concurso = current_user.concursos.new(concurso_params)
-   #@concurso = Concurso.new(concurso_params)
+ @concurso = current_user.concursos.new(concurso_params)
+ # @concurso = Concurso.new(concurso_params)
+
+   img = params[:concurso][:concurso]
+   
+    upload_imagen(img)
 
     respond_to do |format|
       if @concurso.save
-        format.html { redirect_to @concurso, notice: 'Concurso was successfully created.' }
+        format.html { redirect_to @concurso, notice: 'El Concurso fue creado exitosamente.' }
         format.json { render :show, status: :created, location: @concurso }
       else
         format.html { render :new }
@@ -45,8 +43,6 @@ class ConcursosController < ApplicationController
     end
   end
 
-  # PATCH/PUT /concursos/1
-  # PATCH/PUT /concursos/1.json
   def update
     respond_to do |format|
       if @concurso.update(concurso_params)
@@ -61,8 +57,7 @@ class ConcursosController < ApplicationController
 
    
 
-  # DELETE /concursos/1
-  # DELETE /concursos/1.json
+  
   def destroy
     @concurso.destroy
     respond_to do |format|
@@ -71,21 +66,29 @@ class ConcursosController < ApplicationController
     end
   end
 
+  def upload_imagen(file)
+    uploader = ImagenUploader.new
+    uploader.store!(file)
+    return uploader.url
+    end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
-   
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def concurso_params
-      params.require(:concurso).permit(:namec, :banner, :url, :fecha_inicio, :fecha_fin, :premio)
-    end
+      
+   def archivo_params
+     #ok params.require(:archivo).permit(:nombres, :email, :video, :mensaje, :fecha_creacion, :estado, :concurso_url, :concurso_id)
+      params.require(:archivo).permit(:nombres, :email, :video, :mensaje, :fecha_creacion, :estado, :concurso_id)
+      end
     
- def set_concurso
-      @concurso = Concurso.find(params[:url])
+    def concurso_params
+      params.require(:concurso).permit(:namec, :banner, :url, :fecha_inicio, :fecha_fin, :premio, :user_id)
     end
 
+     
+      def set_concurso
+    #@concurso = Concurso.find(params[:url])
+    #@concurso = Concurso.find(params[:concurso_id])
 
- #   def validate_user
-  #    redirect_to new_user_session_path, notice: "Necesitas iniciar sesión"
-  #  end
+    @concurso = Concurso.find_by(params[:concurso_id])
+
+   end
 end

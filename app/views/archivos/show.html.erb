@@ -18,15 +18,6 @@
 
 <p>
   <strong>Video:</strong>
-  <%= @archivo.video.url  %>
-
- <div class="timeline-body">
-    <%= jwplayer({width: 450, height: 350, file: @archivo.video.url , primary: "flash", flashplayer: asset_path('flash.swf')}) %>
-    </div>
- </p>
-
-<p>
-  <strong>Video:</strong>
   <%= @archivo.video %>
 </p>
 

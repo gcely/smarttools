@@ -1,5 +1,9 @@
 class ArchivosController < ApplicationController
-  before_action :validate_concurso, only: [:show, :edit, :update, :destroy]
+require 'mongoid'
+require 'will_paginate/collection'
+require 'carrierwave/mongoid'
+
+  before_action :set_concurso, excep: [:show, :create]
   before_action :set_archivo, only: [:show, :edit, :update, :destroy]
 
   # GET /archivos
@@ -11,6 +15,13 @@ class ArchivosController < ApplicationController
   # GET /archivos/1
   # GET /archivos/1.json
   def show
+
+    @archivo = Archivo.new
+  #@archivos = Concurso.archivos.paginate(:page => params[:page], :per_page => 1)
+  #@concurso = Concurso.new(params[:concurso_url])
+  #@archivo.concurso= @concurso
+  #@archivo = Archivo.new(archivo_params)
+  
   end
 
   # GET /archivos/new
@@ -28,20 +39,22 @@ class ArchivosController < ApplicationController
 
     @concurso= Concurso.find(params[:concurso_url])
     @archivo = Archivo.new(archivo_params)
-   # @archivo =Archivo.new(nombres: 'asdad', apellidos: nil, email: 'jeffersonaaj@com.co', video: 'SampleVtest.mp4', mensaje: 'kakjlasdajksd', estado: nil, concurso_id: concurso_url)
     @archivo.concurso= @concurso
+    vid = params[:archivo][:video]
+    @archivo.nombre_video = vid.original_filename
+    @archivo.estado = 0
+    
 
-   vid = params[:archivo][:archivo]
-    #@archivo.video = vid.original_filename
-
-    upload_file(vid)
+   
     respond_to do |format|
 
       if @archivo.save
-        format.html { redirect_to concursos_url, notice: 'Archivo was successfully created.' }
+        format.html { redirect_to @archivo.concurso, notice: 'Su video fue subido exitosamente.' }
         format.json { render :show, status: :created, location: @archivo }
-      else
-        format.html { render :new }
+	send_msg_to_queue(@archivo.id.to_s)
+	upload_file(@archivo)      
+else
+        format.html {  redirect_to @archivo.concurso, notice: 'Su video no se pudo subir, verifique los datos.' }
         format.json { render json: @archivo.errors, status: :unprocessable_entity }
       end
     end
@@ -71,9 +84,7 @@ class ArchivosController < ApplicationController
     end
   end
 
-  def set_archivo
-      @archivo = Archivo.find(params[:concurso_id])
-    end
+ 
 
   def upload_file(file)
     # Declaring
@@ -90,17 +101,23 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def archivo_params
-      params.require(:archivo).permit(:nombres, :apellidos, :email, :video, :mensaje, :estado)
+      params.require(:archivo).permit(:nombres, :email, :video, :mensaje, :estado, :concurso_id)
 
       end
 
-      def validate_concurso
-      redirect_to @concurso, notice: 'Selecciona un Concurso' 
-      end
+ #     def validate_concurso
+  #    redirect_to @concurso, notice: 'Selecciona un Concurso' 
+  #    end
 
       def url_concurso
       redirect_to @concurso, notice: 'Selecciona un Concurso' 
       end
 
-     
+     def set_concurso
+      @concurso = Concurso.find(params[:concurso_url])
+	end
+
+     def set_archivo
+      @archivo = Archivo.find(params[:id])
+    end
 end

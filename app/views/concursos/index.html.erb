@@ -18,6 +18,9 @@
   </thead>
 
   <tbody>
+
+ <%= will_paginate @concursos %>
+
     <% @concursos.each do |concurso| %>
       <tr>
         <td><%= concurso.namec %></td>
