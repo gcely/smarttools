@@ -2,7 +2,7 @@ development:
 # Configure available database sessions. (required)
   clients:
     default:
-      uri: 'mongodb://heroku_5jh1srk:Gc74381834@ds139267.mlab.com:39267/heroku_5jh1srk' 
+      uri: mongodb://heroku_5jh1srk:Gc74381834@ds139267.mlab.com:39267/heroku_5jh1srk
       options: 
         consistency: :strong
         max_retries: 30
@@ -28,7 +28,7 @@ production:
       # connection setup. 
       # Use environment variables or a config file to keep your 
       # credentials safe.
-      uri: 'mongodb://heroku_5jh1srk:Gc74381834@ds139267.mlab.com:39267/heroku_5jh1srk' 
+      uri: mongodb://heroku_5jh1srk:Gc74381834@ds139267.mlab.com:39267/heroku_5jh1srk
       options: 
         # The default consistency is :eventual, which reads from 
         # secondaries when possible. 
