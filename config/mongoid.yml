@@ -9,7 +9,7 @@ development:
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - 172.31.63.186:27017
+        - ds139267.mlab.com:39267/heroku_5jh1srk7:27017
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
@@ -136,7 +136,7 @@ test:
     default:
       database: smarttools_test
       hosts:
-        - 172.31.63.186:27017
+        - ds139267.mlab.com:39267/heroku_5jh1srk7:27017
       options:
         read:
           mode: :primary
