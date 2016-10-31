@@ -1,25 +1,4 @@
-development:
-# Configure available database sessions. (required)
-  sessions:
-    default:
-      uri: 'mongodb://heroku_5jh1srk7:Gc74381834@ds139267.mlab.com:39267/heroku_5jh1srk7' 
-      options: 
-        consistency: :strong
-        max_retries: 30
-        retry_interval: 1
-        timeout: 15
-test:
-  sessions:
-    default:
-      database: smarttools_development
-      hosts:
-        - localhost:27017
-      options:
-        read: primary
-        # In the test environment we lower the retries and retry interval to
-        # low amounts for fast failures.
-        max_retries: 1
-        retry_interval: 0
+
 production:
   # Configure available database sessions. (required)
   sessions:
