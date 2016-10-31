@@ -11,7 +11,7 @@ development:
 test:
   sessions:
     default:
-      database: my_pm_app_test
+      database: smarttools_development
       hosts:
         - localhost:27017
       options:
