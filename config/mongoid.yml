@@ -1,6 +1,6 @@
 development:
 # Configure available database sessions. (required)
-  sessions:
+  clients:
     default:
       uri: 'mongodb://heroku_5jh1srk:Gc74381834@ds139267.mlab.com:39267/heroku_5jh1srk' 
       options: 
@@ -9,7 +9,7 @@ development:
         retry_interval: 1
         timeout: 15
 test:
-  sessions:
+  clients:
     default:
       database: smarttools_test
       hosts:
@@ -22,7 +22,7 @@ test:
         retry_interval: 0
 production:
   # Configure available database sessions. (required)
-  sessions:
+  clients:
     default:
       # The standard MongoDB connection URI allows for easy replica set 
       # connection setup. 
