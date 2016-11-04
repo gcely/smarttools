@@ -34,7 +34,7 @@ production:
       database: heroku_5jh1srk7
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
-      hosts: ec2-54-163-147-120.compute-1.amazonaws.com:27017
+      hosts: mongodb://admin:admin@ec2-54-163-147-120.compute-1.amazonaws.com:27017/smarttools_test
   # Configure Mongoid specific options. (optional)
   options:
     
