@@ -1,5 +1,11 @@
-     
+development:
+      clients:
+        default:
+          hosts:
+            <%=['MONGODB_URI']%>
 production:
-  # Configure available database clients. (required)
-  clients:    
-    hosts: <%=['MONGODB_URI']%>
+  clients:
+        default:
+          hosts:
+            <%=['MONGODB_URI']%>
+    
