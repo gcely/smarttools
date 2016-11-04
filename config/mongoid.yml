@@ -34,7 +34,7 @@ production:
       database: heroku_5jh1srk7
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
-      hosts: mongodb://heroku_5jh1srk7:app123456@ds139267.mlab.com:39267/heroku_5jh1srk7
+      hosts: <%= ENV['MONGODB_URI']%>
   # Configure Mongoid specific options. (optional)
   options:
     
