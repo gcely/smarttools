@@ -1,5 +1,5 @@
 require 'mongoid'
-Mongoid.load!('mongoid.yml', :production)
+
 
 class Concurso
 include Mongoid::Document

@@ -1,5 +1,5 @@
 require 'mongoid'
-Mongoid.load!('mongoid.yml', :production)
+
 
 class User
 include Mongoid::Document
