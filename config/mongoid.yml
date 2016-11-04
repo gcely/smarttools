@@ -9,7 +9,7 @@ production:
       #database: heroku_5jh1srk7
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
-      hosts: mongodb://admin1:1234@ec2-54-163-147-120.compute-1.amazonaws.com:27017/smarttools_test
+      hosts: <%=['MONGODB_URI']%>
   # Configure Mongoid specific options. (optional)
   options:
     
