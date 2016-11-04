@@ -9,7 +9,7 @@ development:
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - <%= ENV['MONGODB_URI']%>
+        <%= ENV['MONGODB_URI']%>
       options:
   # Configure Mongoid specific options. (optional)
   options:
@@ -36,7 +36,7 @@ production:
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - <%= ENV['MONGODB_URI']%>
+        <%= ENV['MONGODB_URI']%>
       options:
   # Configure Mongoid specific options. (optional)
   options:
