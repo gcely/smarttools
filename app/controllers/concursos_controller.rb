@@ -3,7 +3,6 @@ require 'mongoid'
 require 'will_paginate/collection'
 require 'carrierwave/mongoid'
 
-Mongoid.load!(Rails.root.join("/config/mongoid.yml"))
 
  
  before_action :authenticate_user!,  except: [:show, :index]
