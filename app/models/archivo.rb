@@ -1,3 +1,6 @@
+require 'mongoid'
+Mongoid.load!('mongoid.yml', :production)
+
 class Archivo
 include Mongoid::Document
 include Mongoid::Timestamps
