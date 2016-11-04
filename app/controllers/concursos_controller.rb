@@ -9,7 +9,7 @@ require 'carrierwave/mongoid'
  
 
   def index
-    @concursos = Concurso.paginate(:page => params[:page], :per_page => 10)
+    #@concursos = Concurso.paginate(:page => params[:page], :per_page => 10)
     end
 
   def show
