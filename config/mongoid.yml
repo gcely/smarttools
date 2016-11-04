@@ -40,4 +40,4 @@ production:
       options:
   # Configure Mongoid specific options. (optional)
   options:
-    connect_timeout: 15
+    
