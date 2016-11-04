@@ -1,11 +1,11 @@
 development:
       clients:
-        default:
+        default: heroku_5jh1srk7
           hosts:
             <%=['MONGODB_URI']%>
 production:
   clients:
-        default:
+        default: heroku_5jh1srk7
           hosts:
             <%=['MONGODB_URI']%>
     
