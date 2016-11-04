@@ -1,33 +1,42 @@
 development:
-# Configure available database sessions. (required)
+  # Configure available database clients. (required)
   clients:
+    # Defines the default client. (required)
     default:
-      uri: <%=['MONGODB_URI']%>
-      options: 
-        consistency: :strong
-        max_retries: 30
-        retry_interval: 1
-        timeout: 15
+      # Defines the name of the default database that Mongoid can connect to.
+      # (required).
+      database: smarttools_development
+      # Provides the hosts the default client can connect to. Must be an array
+      # of host:port pairs. (required)
+      hosts:
+        - ds139267.mlab.com:39267/heroku_5jh1srk7:27017
+      options:
+  # Configure Mongoid specific options. (optional)
+  options:
+    
 test:
   clients:
     default:
       database: smarttools_test
       hosts:
-        - localhost:27017
+        - ds139267.mlab.com:39267/heroku_5jh1srk7:27017
       options:
-        read: primary
-        # In the test environment we lower the retries and retry interval to
-        # low amounts for fast failures.
-        max_retries: 1
-        retry_interval: 0
+        read:
+          mode: :primary
+        max_pool_size: 1
+        
 production:
-  # Configure available database sessions. (required)
+  # Configure available database clients. (required)
   clients:
+    # Defines the default client. (required)
     default:
-      # The standard MongoDB connection URI allows for easy replica set 
-      # connection setup. 
-      # Use environment variables or a config file to keep your 
-      # credentials safe.
-      uri: <%=['MONGODB_URI']%>
-      options: 
-        connect_timeout: 15
+      # Defines the name of the default database that Mongoid can connect to.
+      # (required).
+      database: smarttools_development
+      # Provides the hosts the default client can connect to. Must be an array
+      # of host:port pairs. (required)
+      hosts:
+        - mongodb://app:app@ds139267.mlab.com:39267/heroku_5jh1srk7
+      options:
+  # Configure Mongoid specific options. (optional)
+  options:
