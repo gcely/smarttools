@@ -48,7 +48,7 @@ gem 'streamio-ffmpeg'
 #MONDO DB GEMS
 
 gem 'bson_ext'
-gem 'mongoid', '~> 5.0.0'
+gem 'mongoid', '~> 6.0'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 gem 'mongo'
@@ -69,6 +69,10 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
