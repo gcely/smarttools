@@ -3,13 +3,15 @@ require 'mongoid'
 require 'will_paginate/collection'
 require 'carrierwave/mongoid'
 
+Mongoid.load!('mongoid.yml', :production)
+
  
  before_action :authenticate_user!,  except: [:show, :index]
  before_action :set_concurso, except: [:index, :new, :create]
  
 
   def index
-    #@concursos = Concurso.paginate(:page => params[:page], :per_page => 10)
+    @concursos = Concurso.paginate(:page => params[:page], :per_page => 10)
     end
 
   def show
