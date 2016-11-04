@@ -51,7 +51,7 @@ gem 'bson_ext'
 gem 'mongoid', '~> 6.0'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
-gem 'mongo'
+gem 'mongo', '~> 2.2'
 
 gem 'dalli-elasticache'
 gem 'aws-ses'
