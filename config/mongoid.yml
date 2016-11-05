@@ -9,7 +9,7 @@ production:
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
-        - ds049641.mlab.com:49641
+        - <%= ENV['MONGODB_URI']%>
       options:
         # Change the default write concern. (default = { w: 1 })
         # write:
