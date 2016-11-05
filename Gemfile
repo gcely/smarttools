@@ -48,7 +48,7 @@ gem 'streamio-ffmpeg'
 #MONDO DB GEMS
 
 gem 'bson_ext'
-gem 'mongoid', '~> 5.0'
+gem 'mongoid'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 
