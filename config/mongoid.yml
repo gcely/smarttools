@@ -17,9 +17,18 @@ development:
 test:
   clients:
     default:
-      database: smarttools_test
-      hosts:
-        - localhost:27017
+      database: heroku_5jh1srk7
+      hosts: <%= ENV['MONGODB_URI']%>
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
+
+production:
+  clients:
+    default:
+      database: heroku_5jh1srk7
+      hosts: <%= ENV['MONGODB_URI']%>
       options:
         read:
           mode: :primary
