@@ -9,27 +9,18 @@ development:
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
       hosts: <%= ENV['MONGODB_URI']%>
-      options:
-        
-  # Configure Mongoid specific options. (optional)
-  options:
+      
    
 test:
   clients:
     default:
       database: heroku_5jh1srk7
       hosts: <%= ENV['MONGODB_URI']%>
-      options:
-        read:
-          mode: :primary
-        max_pool_size: 1
+      
 
 production:
   clients:
     default:
       database: heroku_5jh1srk7
       hosts: <%= ENV['MONGODB_URI']%>
-      options:
-        read:
-          mode: :primary
-        max_pool_size: 1
+      
