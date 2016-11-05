@@ -1,5 +1,3 @@
-require 'mongoid'
-
 
 class Concurso
 include Mongoid::Document

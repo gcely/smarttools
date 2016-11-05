@@ -1,6 +1,3 @@
-require 'mongoid'
-Mongoid.load!('mongoid.yml', :production)
-
 class Concurso < ApplicationRecord
 belongs_to :user
 validates :namec, presence: true

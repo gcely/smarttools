@@ -1,6 +1,3 @@
-require 'mongoid'
-
-
 class Archivo
 include Mongoid::Document
 include Mongoid::Timestamps

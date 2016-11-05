@@ -3,7 +3,6 @@ require 'mongoid'
 require 'will_paginate/collection'
 require 'carrierwave/mongoid'
 
-
  
  before_action :authenticate_user!,  except: [:show, :index]
  before_action :set_concurso, except: [:index, :new, :create]
