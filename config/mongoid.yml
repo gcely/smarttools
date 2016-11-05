@@ -27,7 +27,7 @@ production:
         user: 'smarttools'
 
         # The password of the user for authentication.
-        password: 'app123456'
+        password: <%= ENV['MONGO_PASS']%>
 
         # The user's database roles.
         # roles:
