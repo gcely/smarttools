@@ -10,8 +10,8 @@ module VideosHelper
 			:provider		=>	'AWS',
 			#:region			=> 'us-east-1',	
 			:region			=> 'us-west-2',			
-			:aws_access_key_id	=>	'',
-			:aws_secret_access_key	=>	''
+			:aws_access_key_id	=>	ENV['AWS_ACCESS_KEY_ID'],
+			:aws_secret_access_key	=>	ENV['AWS_SECRET_ACCESS_KEY']
 		})
 		message_from_queue = obtain_message_from_queue[0]
 		if message_from_queue
@@ -57,7 +57,7 @@ module VideosHelper
 				end
 
 				# actualizacion informacion base de datos
-				@video.ruta_conv = "https://smartools-videosd.s3.amazonaws.com/uploads/convertidos/"+"#{@video.id}"+".mp4"
+				@video.ruta_conv = "smartools-videosd.s3-website-us-west-2.amazonaws.com/uploads/convertidos/"+"#{@video.id}"+".mp4"
 				
 				@video.fecha_conversion = DateTime.now
 				@video.estado = 1
