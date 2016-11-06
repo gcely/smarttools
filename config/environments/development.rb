@@ -50,5 +50,6 @@ ENV["SES_SMTP_PASSWORD"] = ""
  #endpoint    = "stools.judgr1.cfg.use1.cache.amazonaws.com:11211"
  #elasticache = Dalli::ElastiCache.new(endpoint)
  #config.cache_store = :dalli_store, elasticache.servers, {:expires_in => 1.day, :compress => true}
-
+#IronCache Store
+  config.cache_store =  :iron_cache, {project_id: ENV['IRON_PROJECTID'], token: ENV['IRON_TOKEN']}
 end
