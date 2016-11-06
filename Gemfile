@@ -41,6 +41,9 @@ gem 'jwplayer-rails', :git => 'git://github.com/dutgriff/jwplayer-rails.git'
 #gem 'mongo', '~> 1.8'
 #gem 'mongo_mapper', '~> 0.13.1'
 
+# gema para iron cache heroku
+gem 'iron_cache_rails', :git =>  'git://github.com/iron-io/iron_cache_rails.git'
+
 #gem 'rufus-scheduler'
 gem 'whenever', require: false
 gem 'streamio-ffmpeg'
