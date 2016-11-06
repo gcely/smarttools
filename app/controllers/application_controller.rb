@@ -17,5 +17,9 @@ protect_from_forgery with: :exception
             devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
             devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :current_password])
         end
+		
+		def find_session(id)
+          session_class.where(:_id => id).first || session_class.new(:_id => id)
+        end
 
 end
