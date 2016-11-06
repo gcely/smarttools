@@ -54,7 +54,7 @@ gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 
 #gem 'dalli-elasticache'
 # gema para iron cache heroku
-gem 'iron_cache_rails'
+gem 'iron_cache_rails', :git =>  'git://github.com/iron-io/iron_cache_rails.git'
 gem 'aws-ses'
 gem 'aws-sdk', '~> 1.6.9'
 gem 'fog-aws' #integración S3 de Amazon
