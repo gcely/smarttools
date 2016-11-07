@@ -53,8 +53,7 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 
 #gem 'dalli-elasticache'
-# gema para iron cache heroku
-#gem 'iron_cache_rails', :git =>  'git://github.com/iron-io/iron_cache_rails.git'
+gem 'iron_mq'
 
 gem 'kgio'
 gem 'memcachier'
