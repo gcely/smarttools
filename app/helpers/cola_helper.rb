@@ -2,9 +2,9 @@ require 'aws-sdk'
 
 module ColaHelper
 	def send_msg_to_queue(message)
-		client = IronMQ::Client.new(host: ENV['IRON_QUE_HOST'],
-									token: ENV['IRON_QUE_TOKEN'],
-									project_id: ENV['IRON_QUE_ID'])
+		client = IronMQ::Client.new(host: 'mq-aws-eu-west-1-1.iron.io',
+									token: '78lTkar7aFpExwRfr2Vp',
+									project_id: '581fed5fbccbd80006c37c72'])
 		resp = client.post(message)
 	end
 	def obtain_message_from_queue
