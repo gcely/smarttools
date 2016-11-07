@@ -13,7 +13,7 @@ module VideosHelper
 			:aws_access_key_id	=>	ENV['AWS_ACCESS_KEY_ID'],
 			:aws_secret_access_key	=>	ENV['AWS_SECRET_ACCESS_KEY']
 		})
-		message_from_queue = obtain_message_from_queue[0]
+		message_from_queue = obtain_message_from_queue
 		puts "consulto la cola"
 		if message_from_queue
 			puts "consultando video por id"
