@@ -14,7 +14,7 @@ module ColaHelper
 									project_id: ENV['IRON_QUE_ID'])
 		queue = client.queue("smarttools_queue")
 		resp = queue.get()
-		puts resp
+		puts resp.body
 		return resp.body
 	end
 	def delete_message_from_queue(receipt_handle)
