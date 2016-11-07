@@ -2,29 +2,25 @@ require 'aws-sdk'
 
 module ColaHelper
 	def send_msg_to_queue(message)
-		@client = IronMQ::Client.new(host: ENV['IRON_QUE_HOST'],
+		client = IronMQ::Client.new(host: ENV['IRON_QUE_HOST'],
 									token: ENV['IRON_QUE_TOKEN'],
 									project_id: ENV['IRON_QUE_ID'])
-		@queue = @client.queue("smarttools_queue")
+		queue = @client.queue("smarttools_queue")
 		resp = @queue.post(message)
 	end
 	def obtain_message_from_queue
 		client = IronMQ::Client.new(host: ENV['IRON_QUE_HOST'],
 									token: ENV['IRON_QUE_TOKEN'],
 									project_id: ENV['IRON_QUE_ID'])
-		resp = client.receive_message({
-			queue_url: 'mq-aws-eu-west-1-1.iron.io',
-			max_number_of_messages: 1,
-		})
-		return resp.messages
+		queue = client.queue("smarttools_queue")
+		resp = queue.get()
+		return resp.body
 	end
 	def delete_message_from_queue(receipt_handle)
 		client = IronMQ::Client.new(host: ENV['IRON_QUE_HOST'],
 									token: ENV['IRON_QUE_TOKEN'],
 									project_id: ENV['IRON_QUE_ID'])
-		resp = client.delete_message({
-			queue_url: 'mq-aws-eu-west-1-1.iron.io',
-			receipt_handle: receipt_handle,
-		})
+		queue = client.queue("smarttools_queue")
+		resp = queue.delete_reserved_messages(receipt_handle)
 	end	
 end
