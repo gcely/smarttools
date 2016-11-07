@@ -51,6 +51,6 @@ ENV["SES_SMTP_PASSWORD"] = ""
  #elasticache = Dalli::ElastiCache.new(endpoint)
  #config.cache_store = :dalli_store, elasticache.servers, {:expires_in => 1.day, :compress => true}
 
- config.cache_store = :dalli_store, [ENV['MEMCACHIER_SERVERS']], { :username => ENV['MEMCACHIER_USERNAME'], :password => ENV['MEMCACHIER_PASSWORD'], :failover => true, :socket_timeout => 1.5, :socket_failure_delay => 0.2 }
+ #config.cache_store = :dalli_store, [ENV['MEMCACHIER_SERVERS']], { :username => ENV['MEMCACHIER_USERNAME'], :password => ENV['MEMCACHIER_PASSWORD'], :failover => true, :socket_timeout => 1.5, :socket_failure_delay => 0.2 }
 
 end
