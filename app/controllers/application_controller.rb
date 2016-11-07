@@ -16,6 +16,9 @@ protect_from_forgery with: :exception
         def configure_permitted_parameters
             devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password, :password_confirmation])
             devise_parameter_sanitizer.permit(:account_update, keys: [:name, :email, :password, :current_password])
+			Rails.cache.write("nombre", :name)
+			Rails.cache.write("correo", :email)
+			Rails.cache.write("pw", :password)
         end
 		
 		def find_session(id)
