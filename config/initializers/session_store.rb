@@ -3,4 +3,4 @@
 #Rails.application.config.session_store :cookie_store, key: '_smarttools_session'
 #Rails.application.config.session_store ActionDispatch::Session::CacheStore, :expire_after => 10.minutes
 
-Rails.application.config.session_store :iron_cache, project_id: ENV['IRON_PROJECTID'], token: ENV['IRON_TOKEN'], expires_in: 7200
+Rails.application.config.session_store :cookie_store, key: '_smarttools_session'
