@@ -5,8 +5,8 @@ module ColaHelper
 		client = IronMQ::Client.new(host: ENV['IRON_QUE_HOST'],
 									token: ENV['IRON_QUE_TOKEN'],
 									project_id: ENV['IRON_QUE_ID'])
-		queue = @client.queue("smarttools_queue")
-		resp = @queue.post(message)
+		queue = client.queue("smarttools_queue")
+		resp = queue.post(message)
 	end
 	def obtain_message_from_queue
 		client = IronMQ::Client.new(host: ENV['IRON_QUE_HOST'],
