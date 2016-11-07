@@ -18,7 +18,7 @@ module VideosHelper
 		if message_from_queue
 			puts "consultando video por id"
 			#@video = Archivo.find_by_id(message_from_queue.body)
-			@video = Archivo.find(message_from_queue.body)
+			@video = Archivo.find(message_from_queue)
 			puts "video: " + @video.id
 			directory = connection.directories.get("smartools-videosd")
 			puts directory
