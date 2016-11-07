@@ -1,3 +1,5 @@
+require 'active_support/cache/dalli_store23'
+
 Rails.application.configure do
  
   config.cache_classes = false
@@ -50,6 +52,8 @@ ENV["SES_SMTP_PASSWORD"] = ""
  #endpoint    = "stools.judgr1.cfg.use1.cache.amazonaws.com:11211"
  #elasticache = Dalli::ElastiCache.new(endpoint)
  #config.cache_store = :dalli_store, elasticache.servers, {:expires_in => 1.day, :compress => true}
+ 
+
 
  config.cache_store = :dalli_store, [ENV['MEMCACHIER_SERVERS']], { :username => ENV['MEMCACHIER_USERNAME'], :password => ENV['MEMCACHIER_PASSWORD'], :failover => true, :socket_timeout => 1.5, :socket_failure_delay => 0.2 }
 
