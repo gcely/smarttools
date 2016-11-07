@@ -1,4 +1,3 @@
-require 'active_support/cache/dalli_store23'
 
 Rails.application.configure do
  
