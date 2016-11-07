@@ -4,3 +4,4 @@
 #Rails.application.config.session_store ActionDispatch::Session::CacheStore, :expire_after => 10.minutes
 
 #Rails.application.config.session_store :cookie_store, key: '_smarttools_session'
+MemcachierGis::Application.config.session_store :cookie_store, key: '_smarttools_session'
