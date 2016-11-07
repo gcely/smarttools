@@ -4,7 +4,7 @@ module ColaHelper
 	def send_msg_to_queue(message)
 		client = IronMQ::Client.new(host: 'mq-aws-eu-west-1-1.iron.io',
 									token: '78lTkar7aFpExwRfr2Vp',
-									project_id: '581fed5fbccbd80006c37c72'])
+									project_id: '581fed5fbccbd80006c37c72')
 		resp = client.post(message)
 	end
 	def obtain_message_from_queue
