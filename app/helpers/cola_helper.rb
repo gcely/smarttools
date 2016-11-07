@@ -13,7 +13,7 @@ module ColaHelper
 									token: ENV['IRON_QUE_TOKEN'],
 									project_id: ENV['IRON_QUE_ID'])
 		queue = client.queue("smarttools_queue")
-		resp = queue.get()
+		resp = queue.reserve(n: 1)
 		puts resp.body
 		return resp.body
 	end
