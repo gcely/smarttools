@@ -5,6 +5,6 @@ class ActionCorreoMailer < ApplicationMailer
   	    @video= v
 		puts "entro a enviar el correo"
     mail(to: @video.email, subject: 'Video exitosamente convertido')
-	puts "envio el correo a: " @video.email
+	puts "envio el correo a: " + @video.email
     end
 end
