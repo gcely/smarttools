@@ -13,5 +13,5 @@
 desc 'convertir videos a .mp4'
 task convertir_videos: :environment do
   puts "entro a la tarea"
-  #VideosHelper.convert_videos()
+  VideosHelper.convert_videos()
 end
