@@ -41,7 +41,7 @@ gem 'jwplayer-rails', :git => 'git://github.com/dutgriff/jwplayer-rails.git'
 #gem 'mongo', '~> 1.8'
 #gem 'mongo_mapper', '~> 0.13.1'
 
-#gem 'rufus-scheduler'
+gem 'rufus-scheduler'
 gem 'whenever', require: false
 gem 'streamio-ffmpeg'
 

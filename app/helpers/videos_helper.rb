@@ -14,7 +14,7 @@ module VideosHelper
 			:aws_secret_access_key	=>	ENV['AWS_SECRET_ACCESS_KEY']
 		})
 		message_from_queue = obtain_message_from_queue
-		puts "consulto la cola"
+		puts "consulto la cola " + message_from_queue
 		if message_from_queue
 			puts "consultando video por id"
 			#@video = Archivo.find_by_id(message_from_queue.body)
