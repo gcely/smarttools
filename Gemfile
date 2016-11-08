@@ -53,7 +53,7 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'mongoid-grid_fs', github: 'ahoward/mongoid-grid_fs'
 
 #gem 'dalli-elasticache'
-gem 'iron_mq' 
+gem 'iron_mq'
 
 gem 'kgio'
 gem 'memcachier'
