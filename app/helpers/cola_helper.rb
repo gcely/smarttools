@@ -22,7 +22,8 @@ module ColaHelper
 									token: ENV['IRON_MQ_TOKEN'],
 									project_id: ENV['IRON_MQ_PROJECT_ID'])
 		queue = client.queue("smarttools_queue")
-		message = queue.get_message msg.id
-		message.delete
+		#message = queue.delete(msg.id, )
+		puts msg.reservation_id
+		queue.delete_reserved_messages(msg)
 	end	
 end
