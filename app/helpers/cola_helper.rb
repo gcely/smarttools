@@ -15,7 +15,7 @@ module ColaHelper
 		queue = client.queue("smarttools_queue")
 		resp = queue.reserve(n: 1)
 		puts resp.body
-		return resp.body
+		return resp
 	end
 	def delete_message_from_queue(receipt_handle)
 		client = IronMQ::Client.new(host: ENV['IRON_MQ_HOST'],
