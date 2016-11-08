@@ -58,7 +58,7 @@ module VideosHelper
 				end
 
 				# actualizacion informacion base de datos
-				@video.ruta_conv = "smartools-videosd.s3-website-us-west-2.amazonaws.com/uploads/convertidos/"+"#{@video.id}"+".mp4"
+				@video.ruta_conv = "https://smartools-videosd.s3.amazonaws.com/uploads/convertidos/"+"#{@video.id}"+".mp4"
 				
 				@video.fecha_conversion = DateTime.now
 				@video.estado = 1
@@ -70,7 +70,7 @@ module VideosHelper
 				puts "envio el correo"
 
 				#borrando registro de la cola
-				delete_message_from_queue(message_from_queue.receipt_handle)
+				delete_message_from_queue(message_from_queue)
 				puts "se borro reg de la cola"
 			#end
 		end
