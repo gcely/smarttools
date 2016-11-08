@@ -17,11 +17,12 @@ module ColaHelper
 		puts resp.body
 		return resp
 	end
-	def delete_message_from_queue(receipt_handle)
+	def delete_message_from_queue(msg)
 		client = IronMQ::Client.new(host: ENV['IRON_MQ_HOST'],
 									token: ENV['IRON_MQ_TOKEN'],
 									project_id: ENV['IRON_MQ_PROJECT_ID'])
 		queue = client.queue("smarttools_queue")
-		resp = queue.delete_reserved_messages(receipt_handle)
+		message = queue.get_message msg.id
+		message.delete
 	end	
 end
