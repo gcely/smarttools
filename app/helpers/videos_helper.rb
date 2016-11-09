@@ -13,7 +13,7 @@ module VideosHelper
 			:aws_access_key_id	=>	ENV['AWS_ACCESS_KEY_ID'],
 			:aws_secret_access_key	=>	ENV['AWS_SECRET_ACCESS_KEY']
 		})
-		message_from_queue = obtain_message_from_queue
+		message_from_queue = obtain_message_from_queue[0]
 		puts "consulto la cola "
 		if message_from_queue
 			puts "consultando video por id"
@@ -70,7 +70,7 @@ module VideosHelper
 				puts "envio el correo"
 
 				#borrando registro de la cola
-				delete_message_from_queue(message_from_queue)
+				delete_message_from_queue(message_from_queue.receipt_handle)
 				puts "se borro reg de la cola"
 			#end
 		end
