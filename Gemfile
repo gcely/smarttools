@@ -66,6 +66,7 @@ gem 'fog-aws' #integración S3 de Amazon
 gem 'mongoid-sadstory' #Correccion de Date_select en campos de fechas
 gem 'mongoid-slug' #Arregla la url manipulable en el path uri
 
+gem 'sidekiq'
 gem "hirefire-resource", github: "gcely/hirefire-resource"
 
 group :development, :test do
