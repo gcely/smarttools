@@ -40,14 +40,16 @@ ENV["SES_SMTP_PASSWORD"] = ""
 
   
  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
+
+=begin 
+ config.action_mailer.smtp_settings = {
     address:              'email-smtp.us-east-1.amazonaws.com',
     port:                 587, #solo funciona con ese
      user_name:           ENV["SES_SMTP_USERNAME"],
     password:             ENV["SES_SMTP_PASSWORD"],
     authentication:       :login,
     enable_starttls_auto: true  }
-  
+=end
  #endpoint    = "stools.judgr1.cfg.use1.cache.amazonaws.com:11211"
  #elasticache = Dalli::ElastiCache.new(endpoint)
  #config.cache_store = :dalli_store, elasticache.servers, {:expires_in => 1.day, :compress => true}
@@ -56,4 +58,6 @@ ENV["SES_SMTP_PASSWORD"] = ""
 
  config.cache_store = :dalli_store, [ENV['MEMCACHIER_SERVERS']], { :username => ENV['MEMCACHIER_USERNAME'], :password => ENV['MEMCACHIER_PASSWORD'], :failover => true, :socket_timeout => 1.5, :socket_failure_delay => 0.2 }
 
+ config.action_controller.asset_host = 'your-dist-url.cloudfront.net'
+ 
 end
