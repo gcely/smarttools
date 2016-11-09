@@ -7,6 +7,6 @@ client = IronMQ::Client.new(host: ENV['IRON_MQ_HOST'],
 HireFire::Resource.configure do |config|
   config.dyno(:worker) do
 	
-    HireFire::Macro::Sidekiq.queue
+    HireFire::Macro::Sqs.queue
   end
 end
