@@ -66,7 +66,7 @@ gem 'fog-aws' #integración S3 de Amazon
 gem 'mongoid-sadstory' #Correccion de Date_select en campos de fechas
 gem 'mongoid-slug' #Arregla la url manipulable en el path uri
 
-gem "hirefire-resource", github: "jtuburon/hirefire-resource"
+gem "hirefire-resource"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
