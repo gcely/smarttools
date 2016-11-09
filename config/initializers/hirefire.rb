@@ -5,6 +5,6 @@ HireFire::Resource.configure do |config|
 									token: ENV['IRON_MQ_TOKEN'],
 									project_id: ENV['IRON_MQ_PROJECT_ID'])
 	queue = client.queue("smarttools_queue")
-    HireFire::Macro::Sqs.queue
+    HireFire::Macro::Sqs.client.queues
   end
 end
